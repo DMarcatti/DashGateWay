@@ -1,16 +1,47 @@
 import { BrowserModule } from '@angular/platform-browser';
+import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { RouterModule } from "@angular/router";
+import { AppComponent }       from './app.component';
+import { HeaderComponent }    from './home/header/header.component';
+import { NavComponent }       from './home/nav/nav.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { EmpresasComponent }  from './empresas/empresas.component';
 
-import { AppComponent } from './app.component';
+
+import { EmpresaComponent } from './empresas/empresa/empresa.component';
+import { InputComponent } from './shared/input/input.component';
+
+import {DataTableModule} from "angular2-datatable";
+import { APP_ROUTES } from "./app.routing";
+import { EmpresasService } from "./empresas/empresas.service";
+import { FiltroPipe } from './shared/pipe/filtro.pipe';
+import { FormDebugComponent } from './form-debug/form-debug.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    NavComponent,
+    DashboardComponent,
+    EmpresasComponent,
+    EmpresaComponent,
+    InputComponent,
+    FiltroPipe,
+    FormDebugComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    SlimLoadingBarModule.forRoot(),
+    FormsModule,
+    HttpModule,
+    RouterModule.forRoot(APP_ROUTES),
+    DataTableModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [EmpresasService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

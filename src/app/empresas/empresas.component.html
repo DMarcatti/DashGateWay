@@ -1,0 +1,68 @@
+
+
+<section class="content-header">
+  <h1>
+    Empresas
+    <small>GateWay</small>
+    <a [routerLink]="['empresa']" class="glyphicon glyphicon-plus-sign" ></a>
+  </h1>
+</section>
+<section class="content">
+    <div class="box">
+
+<section class="content">
+  <div class="box">
+                  <table class="table table-striped" [mfData]="data | filtro : filterQuery" #mf="mfDataTable" [mfRowsOnPage]="10">
+                <thead>
+                <tr>
+                    <th colspan="3">
+                        Pesquisa por Empresa:
+                        <input class="form-control" [(ngModel)]="filterQuery"/>
+                    </th>
+                    <th colspan="2">
+                    <button type="button" class="btn btn-default btn-md" (click)="reloadItens()" >
+                        <span class="glyphicon glyphicon-refresh"></span> Refresh
+                    </button>
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan="5" style="height: 9px">
+                        <ng2-slim-loading-bar [height]="'10px'" ></ng2-slim-loading-bar>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="width: 5%">
+                        <mfDefaultSorter by="id">ID</mfDefaultSorter>
+                    </th>
+                    <th style="width: 10%">
+                        <mfDefaultSorter by="cnpj">CNPJ</mfDefaultSorter>
+                    </th>
+                    <th style="width: 30%">
+                        <mfDefaultSorter by="nome">NOME</mfDefaultSorter>
+                    </th>
+                    <th style="width: 5%"></th>
+                </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of mf.data">
+                      <td>{{item.id}}</td>
+                      <td>{{item.cnpj}}</td>
+                      <td>{{item.nome}}</td>
+                      <td>
+                        <button title="remove" (click)="removeItem(item)">
+                          <span><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                        </button>
+                      </td>
+                  </tr>
+                  </tbody>
+                <tfoot>
+                  <tr>
+                      <td colspan="5">
+                          <mfBootstrapPaginator [rowsOnPageSet]="[5,10,15]"></mfBootstrapPaginator>
+                      </td>
+                  </tr>
+                </tfoot>
+            </table>
+        
+ </div>
+</section>
