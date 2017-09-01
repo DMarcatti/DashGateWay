@@ -20,8 +20,8 @@
               </app-input-container>
             </div>
           </div>
-          <div class="form-group" formArrayName="items">
-            <div *ngFor="let item of empresaForm.get('items').controls; let i=index" [formGroup]="item">
+          <div class="form-group" formArrayName="itens">
+            <div *ngFor="let item of itens.controls; let i=index" [formGroup]="item">
               <div class="col-xs-2" style="clear: both">
                 <app-input-container errorMessage="Campo Obrigatorio" label="Produto">
                   <select class="form-control"  formControlName="selec" [attr.id]="'selec'+i">
@@ -44,10 +44,10 @@
                 </app-input-container>
               </div>
               <div class="col-xs-2" style="margin-top: 26px;">
-                  <button type="button" class="btn btn-danger btn-number" (click)="empresaForm.get('items').removeAt(i)"  data-type="minus" data-field="quant[2]">
+                  <button type="button" class="btn btn-danger btn-number" (click)="empresaForm.get('itens').removeAt(i)"  data-type="minus" data-field="quant[2]">
                     <span class="glyphicon glyphicon-minus"></span>
                   </button>
-                  <button type="button" class="btn btn-success btn-number" data-type="plus" (click)="empresaForm.get('items').push(buildItem(''))" data-field="quant[2]">
+                  <button type="button" class="btn btn-success btn-number" data-type="plus" (click)="empresaForm.get('itens').push(buildItem(''))" data-field="quant[2]">
                       <span class="glyphicon glyphicon-plus"></span>
                   </button>
               </div>

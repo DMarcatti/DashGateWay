@@ -32,7 +32,7 @@ export class EmpresaComponent implements OnInit {
       this.formBuilder.group({
       cnpj: this.formBuilder.control('', [Validators.required, Validators.minLength(5), Validators.maxLength(14), Validators.pattern("^(0|[1-9][0-9]*)$")]),
       nome: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
-      items: this.formBuilder.array(
+      itens: this.formBuilder.array(
         [this.buildItem('')],
         ItemsValidator.minQuantitySum(300)
       )
@@ -66,7 +66,15 @@ export class EmpresaComponent implements OnInit {
         .subscribe((empresa) => {this.empresa = empresa,
         this.completeLoading()});
   }
+
+  get itens(): FormArray {
+    return this.empresaForm.get('itens') as FormArray;
+  };
+  
+
 }
+
+
 
 class ItemsValidator {
     
