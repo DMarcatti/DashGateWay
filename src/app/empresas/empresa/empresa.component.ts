@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { EmpresasService } from "../empresas.service";
 import { Empresa } from "./empresa.model";
-import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators, AbstractControl } from '@angular/forms'
 import { SlimLoadingBarService } from "ng2-slim-loading-bar";
 
 
@@ -71,7 +71,7 @@ export class EmpresaComponent implements OnInit {
 class ItemsValidator {
     
       static minQuantitySum(val: number) {
-        return (c: AbstractControl) => {
+        return (c: FormControl) => {
           let sum = c.value
             .map(item => item.quantity)
             .reduce((acc, cur) => acc + cur, 0 );
