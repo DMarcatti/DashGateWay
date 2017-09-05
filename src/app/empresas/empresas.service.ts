@@ -20,7 +20,7 @@ export class EmpresasService {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json')
     
-    return this.http.post(`http://192.168.49.151:8080/empresa`,
+    return this.http.post(`https://crudrestdash.herokuapp.com/gravar`,
                JSON.stringify(empresa),
                new RequestOptions({headers: headers}) 
             )
@@ -29,7 +29,7 @@ export class EmpresasService {
 
   getEmpresas(): Observable<Empresa[]>{
 
-    return this.http.get(`http://192.168.49.151:8080/findAllEmpresas`)
+    return this.http.get(`https://crudrestdash.herokuapp.com/findempresa`)
            .map(response => response.json())
            .catch(this.handleError);
   }
