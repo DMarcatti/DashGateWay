@@ -21,7 +21,7 @@ import { AuthGuard } from "./guards/auth.guard";
 import { AuthenticationService } from "./service/authentication.service";
 import { UserService } from "./service/user.service";
 import { MockBackend } from "@angular/http/testing";
-import { fakeBackendProvider } from "./_helpers/fake-backend";
+import { fakeBackendProvider } from "./helpers/fake-backend";
 
 
 @NgModule({
