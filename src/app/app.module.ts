@@ -9,11 +9,8 @@ import { HeaderComponent }    from './home/header/header.component';
 import { NavComponent }       from './home/nav/nav.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmpresasComponent }  from './empresas/empresas.component';
-
-
 import { EmpresaComponent } from './empresas/empresa/empresa.component';
 import { InputComponent } from './shared/input/input.component';
-
 import {DataTableModule} from "angular2-datatable";
 import { APP_ROUTES } from "./app.routing";
 import { EmpresasService } from "./empresas/empresas.service";
